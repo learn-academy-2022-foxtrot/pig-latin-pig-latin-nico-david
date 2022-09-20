@@ -10,7 +10,7 @@ const App = () => {
 
   // ACTION ITEM: the "myPigLatinCodeHere" function is where you will put your logic to translate the sentence entered by the user into Pig Latin
   const myPigLatinCodeHere = () => {
-  
+
     // NO MODIFICATION NEEDED: the variable "arrayOfUserInput" will contain the text input from the user split into an array of words
     const arrayOfUserInput = userInput.split(" ")
     console.log("arrayOfUserInput:", arrayOfUserInput)
@@ -33,18 +33,22 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
       if (vowelsArray.includes(eachWord.charAt(0))) {
-        eachWord = eachWord.concat("way")
+        return eachWord.concat("way")
+      } else if (eachWord.startsWith("qu")){
+        return eachWord.slice(2).concat("quay")
+      } else if (eachWord.includes("y") && eachWord !== vowelsArray) {
+        return eachWord.concat(eachWord.slice(0,eachWord.indexOf("y"))).slice(eachWord.indexOf("y")) + ("ay")
+      } else if (eachWord !== eachWord.startsWith(vowelsArray)) {
+        return eachWord.concat(eachWord.slice(0,eachWord.indexOf(vowelsArray[0]))).slice(eachWord.indexOf(vowelsArray[0])) + ("ay")
       }
-      else if (eachWord.charAt(0) !== vowelsArray) {
-        eachWord = eachWord.split("").shift().concat("ay")
-          }
-         console.log(eachWord) 
-    
+      //.slice() method, .split(), substr
+      //.slice() - starting index, ending index subset created
+      //.split() - converts a string into an array
+      // substr - extracts a part of a string, begins at a specified position, and returns a specified number of characters
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
-    
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
@@ -56,7 +60,7 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("")
+    setUserInput("apple through queen squeal fry fluent")
     setInputTranslated("")
   }
 
@@ -95,7 +99,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2022 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2022 | Coded by: Nico and David!</footer>
     </div>
   )
 }
