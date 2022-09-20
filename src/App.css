@@ -12,6 +12,7 @@ h1 {
 .butcher-pig-image {
   margin: 1rem;
   width: 14rem;
+
 }
 
 /* ---BODY--- */
@@ -21,6 +22,10 @@ button {
   margin: 1rem;
   padding: 1rem;
 }
+button:Hover {
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
 
 .body-container {
   padding-bottom: 3rem;
@@ -29,7 +34,9 @@ button {
 .page-container {
   min-height: 100vh;
   position: relative;
+  background-color: rgb(201, 143, 185);
 }
+
 
 .input-section {
   background-color: grey;
@@ -53,6 +60,7 @@ footer {
   position: absolute;
   width: 100%;
   height: 3rem;
+  border: solid 3px black;
 }
 
 @media only screen and (max-width: 650px) {
